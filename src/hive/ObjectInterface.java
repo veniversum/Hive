@@ -1,7 +1,6 @@
 package hive;
 
 public interface ObjectInterface {
-
     //Prints out all the properties of an object, or just one property if name is specified
     void show();
 
@@ -13,6 +12,4 @@ public interface ObjectInterface {
 
     //Actual modifying function without prompts
     void edit(String name, String value);
-
-
 }

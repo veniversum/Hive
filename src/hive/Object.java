@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 public class Object implements ObjectInterface {
-
     //Data structure to store name-to-property mappings
     HashMap<String, String> properties = new HashMap<String, String>();
 
@@ -13,7 +12,6 @@ public class Object implements ObjectInterface {
 
     //basic properties that all objects must have
     public Object() {
-
         System.out.println("Initializing hive.Object.");
 
         //init name
@@ -22,7 +20,6 @@ public class Object implements ObjectInterface {
 
         //Loop to add any more properties
         while (true) {
-
             System.out.println("Add any more Properties? n to quit");
 
             if (sc.nextLine().equals("n")) break;
@@ -37,48 +34,31 @@ public class Object implements ObjectInterface {
             value = sc.nextLine();
 
             edit(propName, value);
-
         }
-
 
         //Finalize init
         System.out.println("Initalization Complete.\n");
-
         show();
-
     }
-
 
     @Override
     public void show() {
-
         System.out.println("All " + properties.get("name") + " Properties\n");
-
         for (String s : properties.keySet()) {
-
             System.out.println(s + " : " + properties.get(s));
-
         }
-
         System.out.println();
-
     }
 
     @Override
     public void show(String name) {
-
         System.out.println("<" + name + "> : " + properties.get("name"));
-
     }
-
 
     //Actual implementation of Hashmap edit without the prompts
     @Override
     public void edit(String name, String value) {
-
         properties.put(name, value);
-
-
     }
 /*
     @Override

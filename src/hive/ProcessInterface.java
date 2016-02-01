@@ -1,7 +1,6 @@
 package hive;
 
 public interface ProcessInterface {
-
     //Show hive.Process information
     void show();
 
@@ -22,6 +21,4 @@ public interface ProcessInterface {
 
     //Method to modify the hive.effects of this process on the "hive.Object universe"
     void modifySideEffects();
-
-
 }

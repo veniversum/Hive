@@ -6,14 +6,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Process implements ProcessInterface {
-
     String title;
 
     boolean isStartableFlag;
     boolean isCompleteFlag;
 
     //Data structure to store the Requisite Processes that must be complete in order to carry out this hive.Process
-    ArrayList<String> reqProcesses = new ArrayList<String>();
+    ArrayList<String> reqProcesses = new ArrayList<>();
 
     //Data structure to store the steps to be taken in this hive.Process
     ArrayList<String> procedures = new ArrayList<String>();
@@ -37,34 +36,24 @@ public class Process implements ProcessInterface {
 
         //Loop to init required processes
         while (true) {
-
             System.out.println("Add Requisite Processes? n to quit");
-
-            if (sc.nextLine().equals("n")) break;
+            if (sc.nextLine().equals("n"))
+                break;
             else {
-
                 System.out.println("Enter Name of Requisite hive.Process.");
                 String reqProcessName = sc.nextLine();
                 if (Universe.titleToProccessMap.containsKey(reqProcessName)) {
-
                     reqProcesses.add(reqProcessName);
-
                 } else {
-
                     System.out.println("hive.Process not found! Nothing done.");
-
                 }
-
             }
-
-
         }
 
         //Loop to init procedure
         while (true) {
             System.out.println("Add Procedure? n to quit");
             if (sc.nextLine().equals("n")) break;
-
             System.out.println("Enter Procedure Description.");
             String procedureLine = sc.nextLine();
             procedures.add(procedureLine);
@@ -74,7 +63,6 @@ public class Process implements ProcessInterface {
         while (true) {
             System.out.println("Add Goal? n to quit");
             if (sc.nextLine().equals("n")) break;
-
             System.out.println("Enter Goal Description.");
             String goalLine = sc.nextLine();
             goals.add(goalLine);
@@ -117,22 +105,14 @@ public class Process implements ProcessInterface {
     }
 
     @Override
-    public void modifyReqProcess() {
-
-    }
+    public void modifyReqProcess() {}
 
     @Override
-    public void modifyProcedure() {
-
-    }
+    public void modifyProcedure() {}
 
     @Override
-    public void modifyGoals() {
-
-    }
+    public void modifyGoals() {}
 
     @Override
-    public void modifySideEffects() {
-
-    }
+    public void modifySideEffects() {}
 }
