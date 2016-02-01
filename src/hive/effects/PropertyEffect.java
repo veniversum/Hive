@@ -1,6 +1,7 @@
-/**
- * Created by bhan on 1/31/16.
- */
+package hive.effects;
+
+import hive.Universe;
+
 public class PropertyEffect implements EffectInterface {
 
     String o;

@@ -1,7 +1,8 @@
-/**
- * Created by bhan on 1/31/16.
- */
-public class PopulationEffect implements EffectInterface{
+package hive.effects;
+
+import hive.Universe;
+
+public class PopulationEffect implements EffectInterface {
 
     String o;
     int c;
@@ -13,7 +14,7 @@ public class PopulationEffect implements EffectInterface{
         c = count;
     }
 
-    public PopulationEffect(String objName, char choice,  int count) {
+    public PopulationEffect(String objName, char choice, int count) {
 
         o = objName;
         c = count;
@@ -26,9 +27,7 @@ public class PopulationEffect implements EffectInterface{
 
         if (ch == '\u0000') {
             Universe.populationEffect(o, c);
-        }
-
-        else {
+        } else {
 
             Universe.populationEffect(o, ch, c);
 

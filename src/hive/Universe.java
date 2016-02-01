@@ -1,25 +1,19 @@
-import java.util.ArrayList;
+package hive;
+
 import java.util.HashMap;
 
-/**
- * Created by bhan on 1/30/16.
- */
-public class Universe{
+public class Universe {
 
     //Data structure that maps the name of an object to its instantiation
-    static HashMap<String,Object> nameToObjMap = new HashMap<String,Object>();
+    static HashMap<String, Object> nameToObjMap = new HashMap<>();
 
 
-
-    //Data structure to map the Name of an Object to the number of Objects there are in the universe
-    static HashMap<String,Integer> objectCountMap = new HashMap<String,Integer>();
-
+    //Data structure to map the Name of an hive.Object to the number of Objects there are in the universe
+    static HashMap<String, Integer> objectCountMap = new HashMap<>();
 
 
-    //Data structure to map the Name of a Process to its instantiation
-    static HashMap<String,Process> titleToProccessMap = new HashMap<String, Process>();
-
-
+    //Data structure to map the Name of a hive.Process to its instantiation
+    static HashMap<String, Process> titleToProccessMap = new HashMap<>();
 
 
     //Method to show an overview of objects in the universe and their counts
@@ -37,7 +31,7 @@ public class Universe{
 
     }
 
-   //Method to show an overview of processes in the universe and their Flags
+    //Method to show an overview of processes in the universe and their Flags
     public static void showAllProcesses() {
 
         System.out.println("Name : \t Startable \t Completed");
@@ -45,7 +39,7 @@ public class Universe{
         for (String s : titleToProccessMap.keySet()) {
 
             Process foo = titleToProccessMap.get(s);
-            System.out.println(s + " : \t\t" + foo.isStartable() + " \t\t" + foo.isCompleteFlag );
+            System.out.println(s + " : \t\t" + foo.isStartable() + " \t\t" + foo.isCompleteFlag);
 
         }
 
@@ -68,7 +62,7 @@ public class Universe{
         //create object
         Object foo = new Object();
 
-        //modify Universe records
+        //modify hive.Universe records
         Universe.nameToObjMap.put(foo.properties.get("name"), foo);
         Universe.objectCountMap.put(foo.properties.get("name"), 0);
 
@@ -87,11 +81,13 @@ public class Universe{
 
         int oldcount = Universe.objectCountMap.get(objName);
 
-        switch(change) {
+        switch (change) {
 
-            case '+': Universe.objectCountMap.put(objName, oldcount + count);
+            case '+':
+                Universe.objectCountMap.put(objName, oldcount + count);
                 break;
-            case '-': Universe.objectCountMap.put(objName, oldcount - count);
+            case '-':
+                Universe.objectCountMap.put(objName, oldcount - count);
                 break;
 
 
@@ -108,7 +104,7 @@ public class Universe{
 
         foo.edit(property, newvalue);
 
-        if(property.equals("name")) {
+        if (property.equals("name")) {
 
             //add new reference for new name
             Universe.nameToObjMap.put(newvalue, foo);
@@ -128,7 +124,7 @@ public class Universe{
         //create object
         Process bar = new Process();
 
-        //modify Universe records
+        //modify hive.Universe records
         Universe.titleToProccessMap.put(bar.title, bar);
 
     }

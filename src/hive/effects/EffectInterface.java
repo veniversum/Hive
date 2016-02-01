@@ -1,6 +1,5 @@
-/**
- * Created by bhan on 1/31/16.
- */
+package hive.effects;
+
 public interface EffectInterface {
 
     void runEffect();

@@ -1,10 +1,9 @@
+package hive;
+
 import java.util.HashMap;
 import java.util.Scanner;
 
-/**
- * Created by bhan on 1/30/16.
- */
-public class Object implements ObjectInterface{
+public class Object implements ObjectInterface {
 
     //Data structure to store name-to-property mappings
     HashMap<String, String> properties = new HashMap<String, String>();
@@ -15,14 +14,14 @@ public class Object implements ObjectInterface{
     //basic properties that all objects must have
     public Object() {
 
-        System.out.println("Initializing Object.");
+        System.out.println("Initializing hive.Object.");
 
         //init name
-        System.out.println("Enter Name of Object.");
+        System.out.println("Enter Name of hive.Object.");
         edit("name", sc.nextLine());
 
         //Loop to add any more properties
-        while(true) {
+        while (true) {
 
             System.out.println("Add any more Properties? n to quit");
 
@@ -31,16 +30,15 @@ public class Object implements ObjectInterface{
             String propName;
             String value;
 
-            System.out.println("Enter Name of Property of Object.");
+            System.out.println("Enter Name of Property of hive.Object.");
             propName = sc.nextLine();
 
-            System.out.println("Enter Value of Property of Object.");
+            System.out.println("Enter Value of Property of hive.Object.");
             value = sc.nextLine();
 
             edit(propName, value);
 
         }
-
 
 
         //Finalize init
@@ -78,7 +76,7 @@ public class Object implements ObjectInterface{
     @Override
     public void edit(String name, String value) {
 
-        properties.put(name,value);
+        properties.put(name, value);
 
 
     }
