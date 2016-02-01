@@ -1,24 +1,24 @@
 package hive;
 
 public interface ProcessInterface {
-    //Show hive.Process information
+    //Show Process information
     void show();
 
-    //Method to check that hive.Process can be initiated
+    //Method to check that Process can be initiated
     boolean isStartable();
 
-    //Method to check that hive.Process is complete
+    //Method to check that Process is complete
     boolean isComplete();
 
     //Method to modify the ArrayList of required Complete Processes
     void modifyReqProcess();
 
-    //Method to modify the Procedure of the hive.Process
+    //Method to modify the Procedure of the Process
     void modifyProcedure();
 
-    //Method to modify the goals of the hive.Process
+    //Method to modify the goals of the Process
     void modifyGoals();
 
-    //Method to modify the hive.effects of this process on the "hive.Object universe"
+    //Method to modify the effects of this process on the "Object universe"
     void modifySideEffects();
 }

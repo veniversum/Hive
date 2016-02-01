@@ -11,16 +11,16 @@ public class Process implements ProcessInterface {
     boolean isStartableFlag;
     boolean isCompleteFlag;
 
-    //Data structure to store the Requisite Processes that must be complete in order to carry out this hive.Process
+    //Data structure to store the Requisite Processes that must be complete in order to carry out this Process
     ArrayList<String> reqProcesses = new ArrayList<>();
 
-    //Data structure to store the steps to be taken in this hive.Process
+    //Data structure to store the steps to be taken in this Process
     ArrayList<String> procedures = new ArrayList<String>();
 
-    //Data structure to store the abstract outcome of what this hive.Process should accomplish
+    //Data structure to store the abstract outcome of what this Process should accomplish
     ArrayList<String> goals = new ArrayList<String>();
 
-    //Data structure to store the hive.effects that this hive.Process will have on the "hive.Object universe"
+    //Data structure to store the effects that this Process will have on the "Object universe"
     ArrayList<EffectInterface> effects = new ArrayList<EffectInterface>();
 
     //Scanner object to read user input
@@ -29,8 +29,8 @@ public class Process implements ProcessInterface {
     public Process() {
 
         //Init process title
-        System.out.println("Initializing hive.Process.");
-        System.out.println("Enter Title of hive.Process");
+        System.out.println("Initializing Process.");
+        System.out.println("Enter Title of Process");
 
         title = sc.nextLine();
 
@@ -40,12 +40,12 @@ public class Process implements ProcessInterface {
             if (sc.nextLine().equals("n"))
                 break;
             else {
-                System.out.println("Enter Name of Requisite hive.Process.");
+                System.out.println("Enter Name of Requisite Process.");
                 String reqProcessName = sc.nextLine();
                 if (Universe.titleToProccessMap.containsKey(reqProcessName)) {
                     reqProcesses.add(reqProcessName);
                 } else {
-                    System.out.println("hive.Process not found! Nothing done.");
+                    System.out.println("Process not found! Nothing done.");
                 }
             }
         }
@@ -68,10 +68,10 @@ public class Process implements ProcessInterface {
             goals.add(goalLine);
         }
 
-        //TODO Loop to add hive.effects
+        //TODO Loop to add effects
     }
 
-    //Method to print the information of this specific hive.Process
+    //Method to print the information of this specific Process
     @Override
     public void show() {
         System.out.println("All " + title + " Properties\n");

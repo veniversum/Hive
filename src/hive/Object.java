@@ -12,10 +12,10 @@ public class Object implements ObjectInterface {
 
     //basic properties that all objects must have
     public Object() {
-        System.out.println("Initializing hive.Object.");
+        System.out.println("Initializing Object.");
 
         //init name
-        System.out.println("Enter Name of hive.Object.");
+        System.out.println("Enter Name of Object.");
         edit("name", sc.nextLine());
 
         //Loop to add any more properties
@@ -27,10 +27,10 @@ public class Object implements ObjectInterface {
             String propName;
             String value;
 
-            System.out.println("Enter Name of Property of hive.Object.");
+            System.out.println("Enter Name of Property of Object.");
             propName = sc.nextLine();
 
-            System.out.println("Enter Value of Property of hive.Object.");
+            System.out.println("Enter Value of Property of Object.");
             value = sc.nextLine();
 
             edit(propName, value);

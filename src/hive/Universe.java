@@ -8,11 +8,11 @@ public class Universe {
     static HashMap<String, Object> nameToObjMap = new HashMap<>();
 
 
-    //Data structure to map the Name of an hive.Object to the number of Objects there are in the universe
+    //Data structure to map the Name of an Object to the number of Objects there are in the universe
     static HashMap<String, Integer> objectCountMap = new HashMap<>();
 
 
-    //Data structure to map the Name of a hive.Process to its instantiation
+    //Data structure to map the Name of a Process to its instantiation
     static HashMap<String, Process> titleToProccessMap = new HashMap<>();
 
 
@@ -50,7 +50,7 @@ public class Universe {
         //create object
         Object foo = new Object();
 
-        //modify hive.Universe records
+        //modify Universe records
         Universe.nameToObjMap.put(foo.properties.get("name"), foo);
         Universe.objectCountMap.put(foo.properties.get("name"), 0);
     }
@@ -97,7 +97,7 @@ public class Universe {
         //create object
         Process bar = new Process();
 
-        //modify hive.Universe records
+        //modify Universe records
         Universe.titleToProccessMap.put(bar.title, bar);
     }
 }
