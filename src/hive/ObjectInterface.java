@@ -6,10 +6,6 @@ public interface ObjectInterface {
 
     void show(String name);
 
-    //modifies an object property. If no input, user is prompted for name of property. Use this to alter any properties
-    //void modify();
-    //void modify(String name);
-
-    //Actual modifying function without prompts
+    //Modifies property of an object
     void edit(String name, String value);
 }

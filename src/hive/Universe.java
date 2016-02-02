@@ -4,102 +4,106 @@ import java.util.HashMap;
 
 public class Universe {
 
+
     //Data structure that maps the name of an object to its instantiation
     static HashMap<String, Object> nameToObjMap = new HashMap<>();
 
 
     //Data structure to map the Name of an Object to the number of Objects there are in the universe
-    static HashMap<String, Integer> objectCountMap = new HashMap<>();
-
-
-    //Data structure to map the Name of a Process to its instantiation
-    static HashMap<String, Process> titleToProcessMap = new HashMap<>();
+    static HashMap<String, Integer> objCountMap = new HashMap<>();
 
 
     //Method to show an overview of objects in the universe and their counts
-    public static void showAllObjects() {
+    public static void show() {
         System.out.println("All Objects and Counts\n");
 
-        for (String s : objectCountMap.keySet()) {
-            System.out.println(s + " : " + objectCountMap.get(s));
+        for (String s : objCountMap.keySet()) {
+            System.out.println(s + " : " + objCountMap.get(s));
         }
 
-        System.out.println();
-    }
-
-    //Method to show an overview of processes in the universe and their Flags
-    public static void showAllProcesses() {
-        System.out.println("Name : \t Startable \t Completed");
-
-        for (String s : titleToProcessMap.keySet()) {
-            Process foo = titleToProcessMap.get(s);
-            System.out.println(s + " : \t\t" + foo.isStartable() + " \t\t" + foo.isCompleteFlag);
-        }
         System.out.println();
     }
 
 
     //Method to get an object reference by name
-    public static Object getObjByName(String name) {
-        return Universe.nameToObjMap.get(name);
+    public static Object getObj(String objName) {
+        return nameToObjMap.get(objName);
+    }
+
+    //Method to model the creation of a blueprint for property-less objects. Count of object is set to zero
+    public static void makeObj(String objName) {
+        //create object
+        Object obj = new Object();
+
+        //init name
+        obj.edit("name", objName);
+
+        //modify Universe records
+        nameToObjMap.put(obj.properties.get("name"), obj);
+        objCountMap.put(obj.properties.get("name"), 0);
     }
 
 
     //Method to model the creation of a blueprint for objects. Count of object is set to zero
-    public static void creationEffect() {
+    public static void makeObj(String objName, HashMap<String,String> properties) {
         //create object
-        Object foo = new Object();
+        Object obj = new Object();
+
+        //init name
+        obj.edit("name", objName);
+
+        //init properties of object
+        obj.edit(properties);
 
         //modify Universe records
-        Universe.nameToObjMap.put(foo.properties.get("name"), foo);
-        Universe.objectCountMap.put(foo.properties.get("name"), 0);
+        nameToObjMap.put(obj.properties.get("name"), obj);
+        objCountMap.put(obj.properties.get("name"), 0);
     }
 
     //Method to model the change of count of a certain object without dependency on previous value
-    public static void populationEffect(String objName, int count) {
-        Universe.objectCountMap.put(objName, count);
+    public static void changeObjPopulation(String objName, int count) {
+        objCountMap.put(objName, count);
     }
 
 
     //Method to model the change of count of a certain object with dependency on previous value
-    public static void populationEffect(String objName, char change, int count) {
-        int oldcount = Universe.objectCountMap.get(objName);
+    public static void changeObjPopulation(String objName, char change, int count) {
+        int oldcount = objCountMap.get(objName);
 
         switch (change) {
             case '+':
-                Universe.objectCountMap.put(objName, oldcount + count);
+                objCountMap.put(objName, oldcount + count);
                 break;
             case '-':
-                Universe.objectCountMap.put(objName, oldcount - count);
+                objCountMap.put(objName, oldcount - count);
                 break;
         }
     }
 
     //Method to change a property of a given object
-    public static void propertyEffect(String objName, String property, String newvalue) {
-        Object foo = Universe.getObjByName(objName);
-        int count = Universe.objectCountMap.get(objName);
+    public static void changeObjProperty(String objName, String property, String newvalue) {
+        Object obj = getObj(objName);
+        int count = objCountMap.get(objName);
 
-        foo.edit(property, newvalue);
+        obj.edit(property, newvalue);
 
         if (property.equals("name")) {
             //add new reference for new name
-            Universe.nameToObjMap.put(newvalue, foo);
-            Universe.objectCountMap.put(newvalue, count);
+            nameToObjMap.put(newvalue, obj);
+            objCountMap.put(newvalue, count);
 
             //delete old reference for old name
-            Universe.nameToObjMap.remove(objName);
-            Universe.objectCountMap.remove(objName);
+            nameToObjMap.remove(objName);
+            objCountMap.remove(objName);
         }
     }
 
-    public static void IdeationEffect() {
-        //create object
-        Process bar = new Process();
-
-        //modify Universe records
-        Universe.titleToProccessMap.put(bar.title, bar);
+    //Method to destroy an object
+    public static void destroyObj(String objName) {
+        nameToObjMap.remove(objName);
+        objCountMap.remove(objName);
     }
+
 }
 
 
