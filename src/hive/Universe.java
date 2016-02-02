@@ -13,7 +13,7 @@ public class Universe {
 
 
     //Data structure to map the Name of a Process to its instantiation
-    static HashMap<String, Process> titleToProccessMap = new HashMap<>();
+    static HashMap<String, Process> titleToProcessMap = new HashMap<>();
 
 
     //Method to show an overview of objects in the universe and their counts
@@ -31,8 +31,8 @@ public class Universe {
     public static void showAllProcesses() {
         System.out.println("Name : \t Startable \t Completed");
 
-        for (String s : titleToProccessMap.keySet()) {
-            Process foo = titleToProccessMap.get(s);
+        for (String s : titleToProcessMap.keySet()) {
+            Process foo = titleToProcessMap.get(s);
             System.out.println(s + " : \t\t" + foo.isStartable() + " \t\t" + foo.isCompleteFlag);
         }
         System.out.println();
