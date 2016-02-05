@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class JobUniverse {
 
     //Data structure that maps the name of a job to its instantiation
-    private static HashMap<String, Job> nameToJobMap = new HashMap<>();
+    public static HashMap<String, Job> nameToJobMap = new HashMap<>();
 
 
     //Method to get an job reference by name

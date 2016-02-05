@@ -6,11 +6,11 @@ public class Universe {
 
 
     //Data structure that maps the name of an object to its instantiation
-    static HashMap<String, Object> nameToObjMap = new HashMap<>();
+    public static HashMap<String, Object> nameToObjMap = new HashMap<>();
 
 
     //Data structure to map the Name of an Object to the number of Objects there are in the universe
-    static HashMap<String, Integer> objCountMap = new HashMap<>();
+    public static HashMap<String, Integer> objCountMap = new HashMap<>();
 
 
     //Method to show an overview of objects in the universe and their counts
